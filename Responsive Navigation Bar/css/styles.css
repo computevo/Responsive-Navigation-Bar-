@@ -1,0 +1,120 @@
+:root {
+  --color-primary: #000;
+  --color-secondary: #efefef;
+  --color-accent: #e91e63;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Typography 
+========================================================================== */
+html {
+  /* 62.5% of 16px = 10px */
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 1.5;
+  background: var(--color-secondary);
+}
+
+/* Links
+========================================================================== */
+a {
+  text-decoration: none;
+}
+
+/* List
+========================================================================== */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Navigation Bar 
+========================================================================== */
+.nav {
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 1rem;
+  align-items: center;
+}
+
+.nav__brand {
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-transform: uppercase;
+}
+
+.nav__toggler {
+  width: 40px;
+  height: 40px;
+  opacity: 1;
+  transition: box-shadow 0.15s;
+  cursor: pointer;
+}
+.nav--expanded .nav__toggler {
+  opacity: 1;
+  box-shadow: 0 0 0 4px var(--color-secondary);
+  border-radius: 5px;
+}
+
+.nav__list {
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.3s;
+  margin: 0;
+}
+.nav--expanded .nav__list {
+  max-height: 100vh;
+  opacity: 1;
+}
+
+.nav__item {
+  padding: 0.5rem 2rem;
+  border-bottom: 1px solid var(--color-secondary);
+}
+.nav__item:last-of-type {
+  border-bottom: none;
+}
+
+.nav__item > a {
+  color: var(--color-primary);
+  transition: color 0.3s;
+}
+.nav__item > a:hover {
+  color: var(--color-accent);
+}
+
+/* Media Query 
+========================================================================== */
+@media screen and (min-width: 768px) {
+  .nav__toggler {
+    display: none;
+  }
+
+  .nav__list {
+    width: auto;
+    display: flex;
+    font-size: 1.6rem;
+    max-height: 100%;
+    opacity: 1;
+  }
+
+  .nav__item {
+    border: 0;
+  }
+}
